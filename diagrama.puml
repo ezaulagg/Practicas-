@@ -1,0 +1,117 @@
+@startuml
+class MetalSlug{
+-Nivel:niveles()
+}
+
+class Pistola
+class Nivel
+class Vida{
++Acabar()
++Recargar()
+}
+class Mapa{
+-Punto:puntos
+-Enemigo:enemigos()
+}
+class Enemigo
+class Soldado
+class Jugador{
+-Vida:vida(3)
+}
+class Personaje
+{
+-Arma:secundaria
+-Arma:primarias()
+-Granada:granadas
+
+}
+class Marco
+class Tarma
+class Fio
+class Eri
+class Vehiculo{
+     + Manejar()
++Disparar()
++Saltar()     
+}
+class Granada{
++Lanzar()
++Recoger()
+}
+
+class Alien
+class Zombie
+class Slugflyer
+class Sv001
+class SlugSubmarine
+class CamelSlug
+class Prisionero{
+-Coleccionable:coleccionables()
+-Arma:primarias()
+
+}
+class JefeFinal
+class Arma{
+      +Disparar()
++Tirar()
++Recoger()
+}
+class HeavyMachinegun
+class Rocketlauncher
+class Shotgun
+class Flameshot
+class GeneralMorder
+class AllenOneil
+class Coleccionable{
++Recojer()
++Ignorar()
+}
+class Moneda
+class Punto 
+class Medalla
+MetalSlug "1"*.."*"Nivel
+class Stone
+class Firebomb
+Prisionero"1"*.."*"Arma
+Stone -|>Granada
+Firebomb -|>Granada
+Moneda-|>Coleccionable
+Medalla-|>Coleccionable
+Mapa"1"*.."2"Jugador
+Mapa"1" *.. "*"Enemigo
+Prisionero"1"*.."*"Coleccionable
+Personaje"1"*.."*"Granada
+Personaje"1" o.. "1"Arma
+Personaje"1" o.. "1"Granada
+Eri -|>Personaje
+Fio -|>Personaje
+Tarma -|>Personaje
+Mapa"1"*.."*"Punto
+Marco -|>Personaje
+Coleccionable -|>Punto
+SlugSubmarine-|>Vehiculo
+CamelSlug -|>Vehiculo
+Slugflyer -|>Vehiculo
+Sv001 -|>Vehiculo
+Pistola-|>Arma 
+Jugador"1" *-- "3"Vida
+JefeFinal -|>Enemigo
+Zombie -|>Enemigo
+Alien -|>Enemigo
+Soldado -|>Enemigo
+Mapa -|>Nivel
+
+GeneralMorder -|>JefeFinal
+AllenOneil -|>JefeFinal
+Flameshot -|>Arma
+Shotgun -|>Arma
+Rocketlauncher -|>Arma
+HeavyMachinegun -|>Arma
+
+Jugador"1" o.. "1"Personaje
+Personaje"1" o.. "1"Prisionero
+Personaje"1" o.. "1"Vehiculo
+Personaje"1" o.. "1"Enemigo
+Personaje"1" *.. "1"Arma
+
+@enduml
