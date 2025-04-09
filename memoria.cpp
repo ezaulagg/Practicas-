@@ -14,12 +14,14 @@ bool encendido;
  otro = true;
 
   } 
-};
+void Ejecutar{
 
+cout<<"ejecutando chorizo"<<endl; 
+}
 int main(int argc, char const *argv[])
 {
   cout<<"--------------------------------------------------------------------------------"<<endl;
-
+};
 cout<<"Tamaño de memoria"<<endl;
 cout<<"tamaño int:"<<sizeof(int)<<endl;
 cout<<"tamaño char: "<<sizeof(char)<<endl;
@@ -104,15 +106,20 @@ cout<<"-------------------------------------------------------------------------
 cout<<"C:   "(chorizo*)malloc(sizeof(chorizo))<<endl;
 cout<<"C++: "<<new chorizo()<<endl;
 
-//C
+  //C
 chorizo* punteroC = (chorizo*)malloc(sizeof(chorizo))<<endl;
 (*puntero).inicializar();
 Free(punteroC);
   //C++
 chorizo* punteroCxx = new chorizo();
+delete punteroCxx;
 
 
-
+//indreccion vs operador -> 
+//indireccion
+(*punteroCxx).inicializar();
+//operador ->
+punteroCxx->inicializar();
 
 
 
