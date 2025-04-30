@@ -37,9 +37,14 @@ persona p2= ("Maria", 25)
 
 archivoSalida.close();
 
+
+//------------------------------------------------
+ifstream archivoEntrada;
+Persona p;
+
 //abrir el archivo de entrada
   
-/*archivoEntrada. open("Archivo_Entrada.txt"); 
+archivoEntrada. open("Archivo_salida.bin", ios::binary); 
  if (|archivoEntrada){
 cerr << "Error al abrir el archivo de Entrada." <<endl;
 return 1;
@@ -47,10 +52,9 @@ return 1;
 
 //leer el archivo de entrada
 
-while (getline(archivoEntrada, linea )) (
-    cout<< linea <<endl;
- 
-)
+while(archivoEntrada.read((char*))(&p), sizeof(persona)) (
+    cout <<"nombre:" << p.nombre <<", Edad: " << p. edad << endl;
+)       
 
 //cerrar el archivo de entrada
 archivoEntrada.close();
@@ -63,5 +67,5 @@ archivoEntrada.close();
 
 
 
-    return 0; */
+    return 0; 
 }
