@@ -4,15 +4,25 @@
 #include <fstream>
 #include <sstream>
 #include <list>
-
+#include <set>
 
 
 using namespace std;
+enum COLUMNAS{
+    INDICE,
+    NOMBRE,
+    NUMERO,
+    TIPO,
+    ETAPA,
+    ANTECESOR,
+    ANTECESOR_NO,
+}
 enum TipoPokemon{
     FUEGO
     AGUA
     PLANTA
     ELECTRICIDAD
+    VENENO
 
 
 
@@ -22,10 +32,10 @@ enum TipoPokemon{
 class Pokemon;
 private{
     string nombre;
-     list <TipoPokemon> tipo;
+     set <TipoPokemon> tipo;
     int nivel;
 public
-   Pokemon(string nombre, TipoPokemon tipo, int nivel){
+   Pokemon(string nombre,set <TipoPokemon> tipo, int nivel){
 this->nombre = nombre;
 this->tipo = tipo;
 this->nivel = nivel;
@@ -57,8 +67,8 @@ vEnteros.push_back (5);
 vEnteros.push_back (1);
 vEnteros.push_back (0);
  
-vector<Pokemon> pokedex;
-pokedex.push_back(Pokemon ("bulbasaur",TipoPokemon::PLANTA));
+
+
 pokedex.push_back(Pokemon ("ivysaur",TipoPokemon::PLANTA));
 pokedex.push_back(Pokemon ("venasaur",TipoPokemon::PLANTA));
 
@@ -71,22 +81,42 @@ if(!pokeCSV){
 }
 //cargar pokemon desde el archivp
 string linea;
+//
+vector<Pokemon> pokedex;
+pokedex.push_back(pokemon("Misigno",(TipoPokemon::VENENO),999)); 
 while(getline(pokeCSV, linea)){
-    
+    //convertir a un string en linea 
     stringstream ss(linea)
+
+    //extraer un valor y guardar en lista
     string valor
-    vector<string> fila;
+    vector<string> Listadecolumnas;
     while(getline(ss,valor,',' )){
      fila.push_back(valor);
 }
-//crear pokemon 
-pokemon p(fila.at(1), TipoPokemon::AGUA,1);
+try
+{
+    cout<<""
+    //crear pokemon 
+pokemon p(
+    Listadecolumnas.at(COLUMNAS::NOMBRE),
+    (TipoPokemon::AGUA),
+    stoi(Listadecolumnas.at(COLUMNAS::ETAPA))
+    pokedex.push_back(p);
+);
 //agregar el pokemon a la pokedex
-pokedex.push_back(p);
-
-cout<< "Pokemon cargado al pokedex" << pokedex.size()endl;
+pokedex[stoi(Listadecolumnas.at(COLUMNAS::NUMERO))]= p;
+}
+catch(const std::exception& e)
+{
+    std::cout<< e.what()'\n';
 }
 
+
+
+}
+cout<< "Pokemon cargado al pokedex" << pokedex.size()endl;
+cout<<"el pokemon 5 es:"<<pokedex.at(5).Getnombre::<<endl;
 
 return EXIT_SUCCESS;
 
